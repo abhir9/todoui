@@ -34,23 +34,15 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: 200,
   },
-  selectItem: {
-    width: '60%',
-  },
-
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 4,
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-
-  button: {
+    button: {
     margin: theme.spacing.unit,
   },
 
-  input: {
-    display: 'none',
-  },
 });
 
 
@@ -87,7 +79,7 @@ class Signup extends Component {
                 message:'',
                 showMessage:false
             })
-        },2000)
+        },500)
     }
   handleChange = prop => event => {
     this.setState({[prop]: event.target.value});

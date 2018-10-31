@@ -33,14 +33,14 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: 200,
   },
-
+    paper: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
 
   button: {
     margin: theme.spacing.unit,
-  },
-
-  input: {
-    display: 'none',
   },
 });
 
@@ -53,7 +53,8 @@ class Login extends Component {
       email: '',
       password: '',
       showPassword: false,
-      message: ''
+      message: '',
+        showMessage:false
     }
   }
 
@@ -77,7 +78,7 @@ class Login extends Component {
                 message:'',
                 showMessage:false
             })
-        },2000)
+        },500)
     }
   handleChange = prop => event => {
     this.setState({[prop]: event.target.value});
@@ -109,10 +110,10 @@ class Login extends Component {
               />
             </Grid>
             <Grid item xs={6}>
-              <Paper>
+              <Paper className={classes.paper}>
                 <Typography variant="display1">{'Login'}</Typography>
               </Paper>
-              <Paper>
+              <Paper className={classes.paper}>
                 <div>
                   <TextField
                       label="Email"
