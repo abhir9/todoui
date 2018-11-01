@@ -86,12 +86,18 @@ class Login extends Component {
   };
 
   login = event => {
-    this.setState({submitted: true});
-    const {email, password} = this.state;
-    const {dispatch} = this.props;
-    if (email && password) {
-      dispatch(userActions.login(email, password));
+    if (this.state.password.length != 0 & this.state.email.length != 0) {
+      this.setState({submitted: true});
+      const {email, password} = this.state;
+      const {dispatch} = this.props;
+      if (email && password) {
+        dispatch(userActions.login(email, password));
+      }
     }
+    else {
+      this.updateNotification('please fill required details')
+    }
+
   }
 
   render() {
