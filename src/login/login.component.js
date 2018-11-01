@@ -33,11 +33,11 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: 200,
   },
-    paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
+  paper: {
+    padding: theme.spacing.unit * 4,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
 
   button: {
     margin: theme.spacing.unit,
@@ -54,13 +54,13 @@ class Login extends Component {
       password: '',
       showPassword: false,
       message: '',
-        showMessage:false
+      showMessage: false
     }
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({message: nextProps.message});
-      this.updateNotification(nextProps.message)
+    this.updateNotification(nextProps.message)
   }
 
   componentDidMount() {
@@ -68,18 +68,19 @@ class Login extends Component {
       history.push('/todo');
     }
   }
-    updateNotification =(msg)=>{
-        this.setState({
-            message:msg,
-            showMessage:msg?true:false
-        })
-        setTimeout(()=>{
-            this.setState({
-                message:'',
-                showMessage:false
-            })
-        },500)
-    }
+
+  updateNotification = (msg) => {
+    this.setState({
+      message: msg,
+      showMessage: msg ? true : false
+    })
+    setTimeout(() => {
+      this.setState({
+        message: '',
+        showMessage: false
+      })
+    }, 500)
+  }
   handleChange = prop => event => {
     this.setState({[prop]: event.target.value});
   };
@@ -101,10 +102,10 @@ class Login extends Component {
           <Grid container spacing={24}>
             <Grid item xs={3}>
               <Snackbar
-                  anchorOrigin={{ vertical:"top", horizontal:"right" }}
+                  anchorOrigin={{vertical: "top", horizontal: "right"}}
                   open={this.state.showMessage}
                   ContentProps={{
-                      'aria-describedby': 'message-id',
+                    'aria-describedby': 'message-id',
                   }}
                   message={<span id="message-id">{this.state.message}</span>}
               />
