@@ -77,6 +77,14 @@ export function loginFailure(user) {
   }
 }
 
+export function logoutFailure(user) {
+  return {
+    type: "LOGOUT_FAILURE",
+    token: user.token,
+    message: user.message.indexOf('Request failed with status code 4') > -1 ? 'Logout Failed, Please Try Again' : user.message
+  }
+}
+
 export function createUserSuccess(user) {
   return {
     type: "SIGNUP_SUCCESS",

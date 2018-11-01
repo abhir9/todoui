@@ -59,8 +59,8 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({message: nextProps.message});
-    this.updateNotification(nextProps.message)
+    this.setState({message: nextProps.loginmessage});
+    this.updateNotification(nextProps.loginmessage)
   }
 
   componentDidMount() {
@@ -160,9 +160,9 @@ Login.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const {loggingIn, message} = state.authentication;
+  const {loggingIn, loginmessage} = state.authentication;
   return {
-    loggingIn, message
+    loggingIn, loginmessage
   };
 }
 

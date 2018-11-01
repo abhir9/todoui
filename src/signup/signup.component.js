@@ -39,7 +39,7 @@ const styles = theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-    button: {
+  button: {
     margin: theme.spacing.unit,
   },
 
@@ -55,13 +55,13 @@ class Signup extends Component {
       password: '',
       showPassword: false,
       message: '',
-        showMessage:false
+      showMessage: false
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({message: nextProps.message});
-      this.updateNotification(nextProps.message)
+    this.setState({message: nextProps.signupmessage});
+    this.updateNotification(nextProps.signupmessage)
   }
 
   componentDidMount() {
@@ -69,18 +69,19 @@ class Signup extends Component {
       history.push('/login');
     }
   }
-    updateNotification =(msg)=>{
-        this.setState({
-            message:msg,
-            showMessage:msg?true:false
-        })
-        setTimeout(()=>{
-            this.setState({
-                message:'',
-                showMessage:false
-            })
-        },500)
-    }
+
+  updateNotification = (msg) => {
+    this.setState({
+      message: msg,
+      showMessage: msg ? true : false
+    })
+    setTimeout(() => {
+      this.setState({
+        message: '',
+        showMessage: false
+      })
+    }, 500)
+  }
   handleChange = prop => event => {
     this.setState({[prop]: event.target.value});
   };
@@ -102,10 +103,10 @@ class Signup extends Component {
           <Grid container spacing={24}>
             <Grid item xs={3}>
               <Snackbar
-                  anchorOrigin={{ vertical:"top", horizontal:"right" }}
+                  anchorOrigin={{vertical: "top", horizontal: "right"}}
                   open={this.state.showMessage}
                   ContentProps={{
-                      'aria-describedby': 'message-id',
+                    'aria-describedby': 'message-id',
                   }}
                   message={<span id="message-id">{this.state.message}</span>}
               />
@@ -160,9 +161,9 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const {loggingIn, message} = state.authentication;
+  const {loggingIn, signupmessage} = state.authentication;
   return {
-    loggingIn, message
+    loggingIn, signupmessage
   };
 }
 
